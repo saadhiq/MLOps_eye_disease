@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eye Prediction</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <h1 class="text-center">Eye Disease Prediction Using Deeplearning</h1>
+
+        <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+            <input class="form-control" type="file" name="imagefile" >
+            <input class="btn btn-primary mt-3"type="submit" value="Predict Image" >
+        </form>
+        <img src="https://www.w3schools.com/images/picture.jpg" alt="Uploaded Image" >
+
+      
+        {% if fileN %}
+            <p class="text-center"> File Name - {{fileN}}</p>
+            <img src="{{ url_for('static', filename='images/' + fileN) }}" alt="Uploaded Image" >
+        {% endif %}
+        
+        {% if prediction %}
+            <p class="text-center"> Predicted Class - {{prediction}}</p>
+        {% endif %}
+        {% if norma %}
+            <p class="text-center"> normal - {{norma}}%</p>
+        {% endif %}
+        {% if cata %}
+            <p class="text-center"> Cataract - {{cata}}%</p>
+        {% endif %}
+        {% if gulu %}
+            <p class="text-center"> Guluacoma - {{gulu}}%</p>
+        {% endif %}
+        {% if am %}
+            <p class="text-center"> AMD - {{am}}%</p>
+        {% endif %}
+        {% if abnor %}
+            <p class="text-center"> Abnormal - {{abnor}}%</p>
+        {% endif %}
+        
+    </body>
+</html>
